@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../Assets/logo.png';
 import './Categories.css';
+import CategoryCard from './CategoryCard';
 // import { useEffect, useState } from 'react';
 
 export const Categories = () => {
@@ -28,13 +29,7 @@ export const Categories = () => {
             <div className="container">
                 <div className="cate-fle d-flex">
                     {cate?.map((item, index) => (
-                        <div className="cate-items">
-                            <div className="cat-img">
-                                <img src={item.img} alt="" />
-                                <span>{item?.title}</span>
-                                <p>hi srini</p>
-                            </div>
-                        </div>
+                        <CategoryCard item={item} className={"d-none home data" }/>
                     ))}
                 
 

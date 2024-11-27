@@ -2,29 +2,37 @@ import React from 'react';
 import './header.css';
 import logo from '../Assets/logo.png';
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from "react-router-dom";
+
 import { FaSearch } from "react-icons/fa";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { AiTwotoneShopping } from "react-icons/ai";
-import { useEffect } from 'react';
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { NavLink, Link } from "react-router-dom";
 
 export const Header = () => {
-    const [datas, setDatas] = useState([]); // State to display filtered data
+    const [datas, setDatas] = useState([]); 
+    const [search, setSearch] = useState([]);// State to display filtered data
     const [filter, setFilter] = useState([]); // State to store all fetched data
     const [toggle, setToggle] = useState(false);
     const [toggle1, setToggle1] = useState(false);
     const [showResults, setShowResults] = useState(false);
 
     useEffect(() => {
-        fetch("https://dummyjson.com/products")
+        fetch("https://fakestoreapi.com/products/categories")
             .then((response) => response.json())
             .then((data) => {
-                setDatas(data.products); // Store the products array
-                setFilter(data.products); // Keep a copy for filtering
+                setDatas(data); // Store the products array
+            })
+            .catch((err) => console.error(err));
+    }, []);
+    useEffect(() => {
+        fetch("https://fakestoreapi.com/products/")
+            .then((response) => response.json())
+            .then((data) => {
+                setSearch(data); // Store the products array
+                setFilter(data); // Keep a copy for filtering
             })
             .catch((err) => console.error(err));
     }, []);
@@ -32,40 +40,46 @@ export const Header = () => {
     const handle = (e) => {
         const value = e.target.value.toLowerCase(); // Capture input value
         if (value === "") {
-            setDatas([]); // Hide results when input is cleared
+            setSearch([]); // Hide results when input is cleared
             setShowResults(false); // Hide results
         } else {
             const res = filter.filter((f) =>
                 f.title.toLowerCase().includes(value)
             );
-            setDatas(res); // Update filtered results
+            setSearch(res); // Update filtered results
             setShowResults(true); // Show results
         }
     };
 
-    const notify = () => toast("Cart is empty!");
+    const notify = () => toast.error("Cart is empty!");
     const menu = [
         {
+            "id": 1,
             "name": "Cloth & Shoes",
             "link": "/nopage",
         },
         {
+            "id": 2,
             "name": "Jewelry & Accessories",
             "link": "/about",
         },
         {
+            "id": 3,
             "name": "Home & Living",
             "link": "/blog",
         },
         {
+            "id": 4,
             "name": "Arts & Collections",
             "link": "/blog",
         },
         {
+            "id": 5,
             "name": "Wedding & Party",
             "link": "/blog",
-        }
+        },
     ]
+    const username = "1"
 
     return (
         <header className='header-blk'>
@@ -74,6 +88,7 @@ export const Header = () => {
                     <div className="haeder-pare d-flex align-items-center">
                         <div className='logo'>
                             <img src={logo}></img>
+                            <Link to={`/profile/${username}`}>dsasdasd</Link>
                         </div>
                         <div className='burger'></div>
                         <div className='search-blk d-flex'>
@@ -97,14 +112,14 @@ export const Header = () => {
                                         showResults &&
                                         <div className="search-results">
                                             <ul>
-                                                {datas.map((d, i) => (
-                                                    <li><Link to="/about" className='d-flex'>
+                                                {search.map((d, i) => (
+                                                    <li><Link to={`/product/${d?.title}/${d?.id}`} className='d-flex'>
                                                         <div className="pd-img">
-                                                            <img src={d.thumbnail} alt="" />
+                                                            <img src={d?.image} alt="" />
                                                         </div>
                                                         <div className="pd-details">
-                                                            <span>{d.title}</span>
-                                                            <b>${d.price}</b>
+                                                            <span>{d?.title}</span>
+                                                            <b>${d?.price}</b>
                                                         </div>
                                                     </Link>
                                                     </li>
@@ -130,16 +145,7 @@ export const Header = () => {
                                     }
                                 </li>
                                 <li><button onClick={notify}><AiTwotoneShopping />Shopping</button><span>0</span></li>
-                                <ToastContainer position="top-right"
-                                    autoClose={5000}
-                                    hideProgressBar={false}
-                                    newestOnTop={false}
-                                    closeOnClick
-                                    rtl={false}
-                                    pauseOnFocusLoss
-                                    draggable
-                                    pauseOnHover
-                                />
+
                             </ul>
                         </div>
                     </div>
@@ -147,9 +153,9 @@ export const Header = () => {
                 <div className="menus-blk">
                     <div className="container">
                         <ul className='d-flex'>
-                            {menu?.map((item, index) => (
+                            {datas?.map((item, index) => (
                                 <li>
-                                    <NavLink to={item.link} className={({ isActive }) => (isActive ? "active" : "")}>{item?.name}</NavLink>
+                                    <NavLink to={`/product/${item} `} className={({ isActive }) => (isActive ? "active" : "")}>{item}</NavLink>
                                 </li>
                             ))}
                         </ul>
