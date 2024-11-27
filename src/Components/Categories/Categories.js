@@ -32,7 +32,7 @@ export const Categories = () => {
                             <div className="cat-img">
                                 <img src={item.img} alt="" />
                                 <span>{item?.title}</span>
-                                <p>hi vicky</p>
+                                <p>hi srini</p>
                             </div>
                         </div>
                     ))}
