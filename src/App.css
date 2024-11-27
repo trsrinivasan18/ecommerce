@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* CSS Document */
+
+
+*{
+  font-family: 'Poppins' !important;
+}
+
+:root {
+  --primary-color:#EB6D20;
+  --text-color: #0B0B0B;
+  --secondary-color: #fff;
+  --text-color-light: #000000;
+}
+
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+form {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+
+input {
+  outline: none;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: #c93137;
+}
+
+textarea {
+  border: none;
+  outline: none;
+  overflow: auto;
+  resize: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+input.button {
+  border: none;
+  outline: none;
+}
+
+input::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+input::-moz-placeholder {
+  opacity: 1;
+}
+
+input:-ms-input-placeholder {
+  opacity: 1;
+}
+
+input:-moz-placeholder {
+  opacity: 1;
+}
+
+input[type=checkbox] {
+  border: none;
+  outline: none;
+}
+
+img {
+  outline: none;
+  border: none;
+  max-width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:active,
+a:hover {
+  text-decoration: none;
+  outline: none !important;
+}
+
+a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+a,
+input[type=submit] {
+  transition: all 0.5s ease-out, all 0.5s ease-in;
+}
+
+:not(output):-moz-ui-invalid {
+  box-shadow: inset;
+}
+
+a:after,
+a:before {
+  transition: 0.5s all ease-out, 0.5s all ease-in;
+  -ms-transition: 0.5s all ease-out, 0.5s all ease-in;
+  -webkit-transition: 0.5s all ease-out, 0.5s all ease-in;
+  -o-transition: 0.5s all ease-out, 0.5s all ease-in;
+}
+
+button:after,
+button:before {
+  transition: 0.5s all ease-out, 0.5s all ease-in;
+  -ms-transition: 0.5s all ease-out, 0.5s all ease-in;
+  -webkit-transition: 0.5s all ease-out, 0.5s all ease-in;
+  -o-transition: 0.5s all ease-out, 0.5s all ease-in;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+.clearfix {
+  clear: both;
+  display: block;
+}
+
+.clearfix::before {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+a,
+span {
+  display: inline-block;
+}
+
+.container {
+  max-width: 1320px;
+  width: 100%;
+  margin: auto;
+  padding: 0;
+}
+button{
+    border: unset;
+    background: unset;
+}

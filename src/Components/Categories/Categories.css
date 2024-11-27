@@ -1,0 +1,29 @@
+.category-blk{
+    padding-top: 20px;
+    position: relative;
+}
+.category-blk::before{
+    content: '';
+    height: 500px;
+    width: 100%;
+    background-color: #8080804d;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+.category-blk .cate-fle{
+    justify-content: space-between;
+}
+.category-blk .cate-fle .cate-items{
+    margin-right: 20px;
+}
+.category-blk .cate-fle .cate-items:nth-child(3n){
+    margin-right: 0;
+}
+.category-blk .cate-fle .cate-items img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
