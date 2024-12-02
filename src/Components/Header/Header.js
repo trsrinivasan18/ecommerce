@@ -88,7 +88,7 @@ export const Header = () => {
                     <div className="haeder-pare d-flex align-items-center">
                         <div className='logo'>
                             <img src={logo}></img>
-                            <Link to={`/profile/${username}`}>dsasdasd</Link>
+                     
                         </div>
                         <div className='burger'></div>
                         <div className='search-blk d-flex'>
